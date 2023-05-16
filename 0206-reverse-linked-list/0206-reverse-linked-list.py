@@ -10,7 +10,7 @@ class Solution(object):
         :rtype: ListNode
         """
 
-        # iterative : T(O), M(1)
+        # iterative : T O(n), M O(1)
         prev, curr = None, head
 
         while curr:
@@ -21,7 +21,7 @@ class Solution(object):
         
         return prev
             
-        # # recursive : T(O), M(O)
+        # # recursive : T O(n), M O(1)
         
         # if not head:
         #     return None
