@@ -11,26 +11,26 @@ class Solution(object):
         """
 
         # iterative : T O(n), M O(1)
-        prev, curr = None, head
+        # prev, curr = None, head
 
-        while curr:
-            nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
+        # while curr:
+        #     nxt = curr.next
+        #     curr.next = prev
+        #     prev = curr
+        #     curr = nxt
         
-        return prev
+        # return prev
             
         # # recursive : T O(n), M O(1)
         
-        # if not head:
-        #     return None
+        if not head:
+            return None
         
-        # newHead = head
-        # if not head.next:
-        #     newHead = self.reverseList(head.next)
-        #     head.next.next = head
-        # head.next = None
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
 
-        # return newHead
+        return newHead
 
