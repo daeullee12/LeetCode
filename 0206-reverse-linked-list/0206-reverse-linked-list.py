@@ -21,4 +21,16 @@ class Solution(object):
         
         return prev
             
-        # recursive : 
+        # # recursive : T(O), M(O)
+        
+        # if not head:
+        #     return None
+        
+        # newHead = head
+        # if not head.next:
+        #     newHead = self.reverseList(head.next)
+        #     head.next.next = head
+        # head.next = None
+
+        # return newHead
+
