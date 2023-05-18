@@ -11,27 +11,24 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
 
-        head = ListNode()
-        first, second = list1, list2
-        p = head
+        dummy = ListNode()
+        p = dummy
 
-        while first is not None and second is not None:
-            
-            if first.val < second.val:
-                p.next = first
-                first = first.next
+        while list1 and list2:
+            if list1.val < list2.val:
+                p.next = list1
+                list1 = list1.next
             else:    
-                p.next = second
-                second = second.next
+                p.next = list2
+                list2 = list2.next
             
             p = p.next
 
-        if first is None:
-            p.next = second
-            return head.next
-        elif second is None:
-            p.next = first
-            return head.next
+        if list1:
+            p.next = list1
+            return dummy.next
+        elif list2:
+            p.next = list2
+            return dummy.next
 
-
-        return head.next
+        return dummy.next
