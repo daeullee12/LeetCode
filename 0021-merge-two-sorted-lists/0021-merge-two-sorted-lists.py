@@ -10,7 +10,7 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-
+        # TC: O(n+m), MC: O(1)
         dummy = ListNode()
         p = dummy
 
