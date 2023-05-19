@@ -10,7 +10,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-
+        # TC: O(n), SC: O(n)
         if not root:
             return 0
         elif not root.left and not root.right:
