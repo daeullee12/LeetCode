@@ -13,10 +13,12 @@ class Solution(object):
         # TC: O(n), SC: O(n)
         if not root:
             return 0
-        elif not root.left and not root.right:
-            return 1
                 
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
         
+        # without recursion, BFS & DFS available
+
+
+
         
 
