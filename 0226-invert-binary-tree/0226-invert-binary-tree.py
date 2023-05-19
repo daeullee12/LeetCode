@@ -12,7 +12,7 @@ class Solution(object):
         """
         
 
-        if root is None:
+        if not root:
             return root
         
         else:
