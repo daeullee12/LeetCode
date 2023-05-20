@@ -39,18 +39,15 @@ class Solution(object):
         # return level
 
         # Solution 3: Depth-First Search
-        if not root:
-            return 0
 
         s = [[root, 1]]
-        res = 1
-
+        res = 0
+        
         while s:
             node, dep = s.pop()
-            res = max(res, dep)
-            if node.right:
+            if node:
+                res = max(res, dep)
                 s.append([node.right, dep+1])
-            if node.left:
                 s.append([node.left, dep+1])
             
         return res
