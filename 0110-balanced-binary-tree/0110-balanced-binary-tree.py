@@ -10,17 +10,23 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        if not root:
-            return True
+        # solution 1: TC O(n^2)
+        # if not root: return True
 
-        height_diff = abs(self.depth(root.left) - self.depth(root.right))
+        # height_diff = abs(self.depth(root.left) - self.depth(root.right))
 
-        if height_diff <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right):
-            return True
+        # if height_diff <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right):
+        #     return True
 
-        return False
-    
-    def depth(self, root):
-        if not root:
-            return 0
-        return 1 + max(self.depth(root.left), self.depth(root.right))
+        # return False
+
+        # solution 2: TC O(n)
+
+        def dfs(root):
+            if not root: return [True, 0]
+            left, right = dfs(root.left), dfs(root.right)
+            balanced = (left[0] and right[0] and abs(left[1] - right[1]) <= 1)
+            return [balanced, 1 + max(left[1], right[1])]
+
+        return dfs(root)[0]
+
