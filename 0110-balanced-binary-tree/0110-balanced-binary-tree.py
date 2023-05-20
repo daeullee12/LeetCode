@@ -12,9 +12,10 @@ class Solution(object):
         """
         if not root:
             return True
+
         height_diff = abs(self.depth(root.left) - self.depth(root.right))
 
-        if height_diff <= 1 and (self.isBalanced(root.left) and self.isBalanced(root.right)):
+        if height_diff <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right):
             return True
 
         return False
