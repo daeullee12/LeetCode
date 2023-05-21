@@ -4,6 +4,9 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
+# TC: O(size of root * size of subRoot)
 class Solution(object):
     def isSubtree(self, root, subRoot):
         """
