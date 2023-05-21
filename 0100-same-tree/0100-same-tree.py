@@ -11,6 +11,8 @@ class Solution(object):
         :type q: TreeNode
         :rtype: bool
         """
+
+        # TC O(p+q)
         if not p and not q:
             return True
     
