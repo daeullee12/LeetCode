@@ -19,8 +19,8 @@ class Solution(object):
     
         elif (iter1 and not iter2) or (not iter1 and iter2):
             return False
-
-        return iter1.val == iter2.val and self.isSameTree(iter1.left, iter2.left) and self.isSameTree(iter1.right, iter2.right)
+        else:
+            return iter1.val == iter2.val and self.isSameTree(iter1.left, iter2.left) and self.isSameTree(iter1.right, iter2.right)
 
 
                 
