@@ -22,28 +22,32 @@ class Solution(object):
 
         # Solution 2: BFS 
         
-        # if not p and not q: return True
-        # if not p or not q: return False
+        if not p and not q: return True
+        if not p or not q: return False
 
         queue = deque([[p, q]])
      
         while queue:
-            
-            for i in range(len(queue)):
-                node1, node2 = queue.popleft()
-                if not node1 and not node2:
-                    continue
-                elif not node1 or not node2 or node1.val != node2.val:
-                    return False
+            node1, node2 = queue.popleft()
+            if not node1 and not node2:
+                continue
+            elif not node1 or not node2 or node1.val != node2.val:
+                return False
                 
-                queue.append([node1.left, node2.left])
-                queue.append([node1.right, node2.right])
+            queue.append([node1.left, node2.left])
+            queue.append([node1.right, node2.right])
 
                     
         if not queue:
             return True
        
         return False
+
+        # Solution 3: DFS
+
+        # stack = list([p, q])
+
+        # while stack:
 
 
 
