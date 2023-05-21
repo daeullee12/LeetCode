@@ -22,8 +22,8 @@ class Solution(object):
 
         # Solution 2: BFS 
         
-        if not p and not q: return True
-        if not p or not q: return False
+        # if not p and not q: return True
+        # if not p or not q: return False
 
         queue = deque([[p, q]])
      
