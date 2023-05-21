@@ -17,11 +17,11 @@ class Solution(object):
         if not iter1 and not iter2:
             return True
     
-        elif iter1 and iter2:
+        elif (iter1 and not iter2) or (not iter1 and iter2):
+            return False
 
-            return iter1.val == iter2.val and self.isSameTree(iter1.left, iter2.left) and self.isSameTree(iter1.right, iter2.right)
+        return iter1.val == iter2.val and self.isSameTree(iter1.left, iter2.left) and self.isSameTree(iter1.right, iter2.right)
 
-        return False
 
                 
 
