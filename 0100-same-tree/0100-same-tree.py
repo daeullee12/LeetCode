@@ -33,12 +33,9 @@ class Solution(object):
                 
             queue.append([node1.left, node2.left])
             queue.append([node1.right, node2.right])
-
                     
-        if not queue:
-            return True
-       
-        return False
+        return True
+
 
         # Solution 3: DFS
 
