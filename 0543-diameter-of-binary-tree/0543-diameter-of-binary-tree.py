@@ -11,23 +11,35 @@ class Solution(object):
         :rtype: int
         """
 
-        if not root:
-            return 0
-        if not root.left or not root.right:
-            return self.depth(root) - 1
+    #     if not root:
+    #         return 0
+    #     if not root.left or not root.right:
+    #         return self.depth(root) - 1
         
-        diameter = self.depth(root.left) + self.depth(root.right) 
-        max_diameter_before = max(self.diameterOfBinaryTree(root.left), self.diameterOfBinaryTree(root.right))
+    #     diameter = self.depth(root.left) + self.depth(root.right) 
+    #     max_diameter_before = max(self.diameterOfBinaryTree(root.left), self.diameterOfBinaryTree(root.right))
         
-        return max(diameter, max_diameter_before)
+    #     return max(diameter, max_diameter_before)
 
-    def depth(self, root):
-        if not root:
-            return 0
-        return 1 + max(self.depth(root.left), self.depth(root.right))
+    # def depth(self, root):
+    #     if not root:
+    #         return [0, 0]
+    #         left, right =
+    #     return 1 + max(self.depth(root.left), self.depth(root.right))
         
-        # 왼쪽 자식 깊이 + 오른쪽 자식 깊이 + 2 or 왼쪽 diameter or 오른쪽 diameter
-    
+        def dfs(root):
+            if not root: return [0, 0] #[diameter, height]
+            if not root.left and not root.right: return [0, 0]
+            left, right = dfs(root.left), dfs(root.right)
+            if not root.left or not root.right: 
+                diameter = 1 + left[1] + right[1]
+            else: 
+                diameter = max(left[0], right[0], 2 + left[1] + right[1])
+
+            return [diameter, 1 + max(left[1], right[1])]
+
+
+        return dfs(root)[0]    
 
 
         
