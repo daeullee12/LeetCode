@@ -28,14 +28,12 @@ class Solution(object):
     #     return 1 + max(self.depth(root.left), self.depth(root.right))
         
         def dfs(root):
-            if not root: return [0, 0] #[diameter, height]
+            if not root: return [0, -1] #[diameter, height]
             if not root.left and not root.right: return [0, 0]
             
             left, right = dfs(root.left), dfs(root.right)
-            if not root.left or not root.right:
-                diameter = 1 + left[1] + right[1]
-            else: 
-                diameter = max(left[0], right[0], 2 + left[1] + right[1])
+
+            diameter = max(left[0], right[0], 2 + left[1] + right[1])
 
             return [diameter, 1 + max(left[1], right[1])]
 
