@@ -27,18 +27,17 @@ class Solution(object):
     #         left, right =
     #     return 1 + max(self.depth(root.left), self.depth(root.right))
         
+        max_dia = [0]   
+
         def dfs(root):
-            if not root: return [0, -1] #[diameter, height]
-            if not root.left and not root.right: return [0, 0]
-            
+            if not root: return -1          
             left, right = dfs(root.left), dfs(root.right)
+            max_dia[0] = max(max_dia[0], 2 + left + right)
+            return 1 + max(left, right)
 
-            diameter = max(left[0], right[0], 2 + left[1] + right[1])
+        dfs(root)
 
-            return [diameter, 1 + max(left[1], right[1])]
-
-
-        return dfs(root)[0]    
+        return max_dia[0] 
 
 
         
