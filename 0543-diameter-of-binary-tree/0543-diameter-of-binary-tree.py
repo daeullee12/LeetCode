@@ -9,25 +9,8 @@ class Solution(object):
         """
         :type root: TreeNode
         :rtype: int
-        """
-
-    #     if not root:
-    #         return 0
-    #     if not root.left or not root.right:
-    #         return self.depth(root) - 1
-        
-    #     diameter = self.depth(root.left) + self.depth(root.right) 
-    #     max_diameter_before = max(self.diameterOfBinaryTree(root.left), self.diameterOfBinaryTree(root.right))
-        
-    #     return max(diameter, max_diameter_before)
-
-    # def depth(self, root):
-    #     if not root:
-    #         return [0, 0]
-    #         left, right =
-    #     return 1 + max(self.depth(root.left), self.depth(root.right))
-        
-        max_dia = [0]   
+        """      
+        max_dia = [0] 
 
         def dfs(root):
             if not root: return -1          
