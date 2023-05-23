@@ -7,7 +7,7 @@ class Solution(object):
         :rtype: int
         """
 
-        # solution 1: max() -> TC O(n)
+        # solution 1: max() -> TC O(n * n), sort() -> TC(nlogn)
         # while len(stones) > 1:
         #     first = stones.pop(stones.index(max(stones)))
         #     second = stones.pop(stones.index(max(stones)))
@@ -19,8 +19,8 @@ class Solution(object):
         #     return stones.pop()
         # return 0
 
-        # Heapify() -> O(1)
-        stones = [n * (-1) for n in stones]
+        # solution 2: Heap -> TC O(nlogn), SC O(n)
+        stones = [n * (-1) for n in stones] # O(nlogn)
 
         while len(stones) > 1:
             heapify(stones)
