@@ -31,7 +31,7 @@ class Solution(object):
         # stones.append(0)
         # return abs(stones[0])
 
-        #solution 3: sort() -> TC O(nlogn)
+        #solution 3: sort() -> TC O(nlogn) * n
  
         while len(stones) > 1:
             stones.sort()
