@@ -5,10 +5,12 @@ class KthLargest(object):
         :type k: int
         :type nums: List[int]
         """
+
+        # O(nlogn)
         self.minHeap, self.k = nums, k
-        heapq.heapify(self.minHeap)
-        while len(self.minHeap) > k:
-            heapq.heappop(self.minHeap)
+        heapq.heapify(self.minHeap) # O((nlogn)
+        while len(self.minHeap) > k: # O((n-k)logn)
+            heapq.heappop(self.minHeap) 
         
 
     def add(self, val):
@@ -16,8 +18,9 @@ class KthLargest(object):
         :type val: int
         :rtype: int
         """
-        heapq.heappush(self.minHeap, val)
-        while len(self.minHeap) > self.k:
+        # O((n-k)logn)
+        heapq.heappush(self.minHeap, val) # O(logn)
+        while len(self.minHeap) > self.k: # O((n-k)logn)
             heapq.heappop(self.minHeap)
         
         return self.minHeap[0]
