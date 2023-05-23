@@ -19,27 +19,26 @@ class Solution(object):
         # return 0
 
         # solution 2: Heap -> TC O(nlogn)
-        stones = [-n for n in stones] # O(nlogn)
-        heapq.heapify(stones)
+        # stones = [-n for n in stones] 
+        # heapq.heapify(stones)
 
+        # while len(stones) > 1:
+        #     first = heapq.heappop(stones)
+        #     second = heapq.heappop(stones)
+        #     if first != second:
+        #         heapq.heappush(stones, first - second)
+
+        # stones.append(0)
+        # return abs(stones[0])
+
+        #solution 3: sort() -> TC O(nlogn)
+ 
         while len(stones) > 1:
-            first = heapq.heappop(stones)
-            second = heapq.heappop(stones)
+            stones.sort()
+            first = stones.pop()
+            second = stones.pop()
             if first != second:
-                heapq.heappush(stones, first - second)
+                stones.append(abs(first - second))
 
         stones.append(0)
         return abs(stones[0])
-
-    #     #solution 3: sort() -> TC O(nlogn)
-    #     stones.sort()
-
-    #    while len(stones) > 1:
-           
-    #         first = heapq.heappop(stones)
-    #         second = heapq.heappop(stones)
-    #         if first != second:
-    #             heapq.heappush(stones, first - second)
-
-    #     stones.append(0)
-    #     return abs(stones[0])
