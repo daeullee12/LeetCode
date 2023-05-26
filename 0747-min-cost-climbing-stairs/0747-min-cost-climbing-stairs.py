@@ -15,6 +15,7 @@ class Solution(object):
         
         # return helper(len(cost),{})
 
+        # Dynamic Programming TC O(n), SC O(1)
         one, two = 0 , 0
         for i in range(2,len(cost)+1):
             one, two = two, min(one + cost[i-2], two + cost[i-1])
