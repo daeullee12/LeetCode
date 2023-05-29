@@ -4,6 +4,8 @@ class Solution(object):
         :type n: int
         :rtype: List[int]
         """
+
+        # Solution 1: TC O(nlogn)
         res = [0]
         for i in range(1,n+1):
             count = 0
