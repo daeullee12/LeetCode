@@ -7,10 +7,11 @@ class Solution(object):
         # Solution 1: Hasing
         hmap = {i: None for i in range(len(nums))}
 
-        for key in hmap:
-            if key not in nums:
-                return key
-        
-        return max(nums) + 1
+        for n in nums:
+            hmap.pop(n, None)
+
+        if hmap:
+            return list(hmap.keys())[0]    
+        return len(nums)
         
 
