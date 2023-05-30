@@ -14,15 +14,16 @@ class Solution(object):
         #     return list(hmap.keys())[0]    
         # return len(nums)
         
-        # Solution 2: XOR TC O(n), SC O(n)
+        # Solution 2: XOR TC O(n), SC O(1)
 
         # missing = len(nums)
         # for i, n in enumerate(nums):
         #     missing ^= i ^ n
         # return missing
 
-        # Solution 3: Sum
+        # Solution 3: Sum TC O(n), SC O(1)
         res = len(nums)
+        
         for i in range(len(nums)):
             res += (i - nums[i])
         return res
