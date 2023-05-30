@@ -16,7 +16,6 @@ class Solution:
         res = 0
 
         for i in range(32):
-            bit = (n >> i) & 1
-            res |= bit << (31 - i)
+            res |= ((n >> i) & 1) << (31 - i)
         
         return res
