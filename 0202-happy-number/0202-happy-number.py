@@ -5,18 +5,20 @@ class Solution(object):
         :rtype: bool
         """
 
-        memo = []
+        visit = set()
 
-        while True:
+        while n not in visit:
             if n == 1:
                 return True
-            if n in memo:
-                return False
-            else: memo.append(n)
+            visit.add(n)
+            n = self.sumOfSquare(n)
 
-            res = 0
-            while n != 0:
-                res += (n % 10) ** 2
-                n //= 10        
+        return False
 
-            n = res
+    def sumOfSquare(self, n):
+        output = 0
+        while n:
+            output += (n % 10) ** 2
+            n //= 10
+        
+        return output
