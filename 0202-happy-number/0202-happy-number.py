@@ -17,6 +17,7 @@ class Solution(object):
 
     def sumOfSquare(self, n):
         output = 0
+        
         while n:
             output += (n % 10) ** 2
             n //= 10
