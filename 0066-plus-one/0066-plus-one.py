@@ -4,6 +4,7 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
+        # Solution 1: reversing the list
         # digits = digits[::-1]
         # carry, i = 1, 0
         # while carry:
@@ -22,6 +23,7 @@ class Solution(object):
         
         # return digits[::-1]
 
+        # Solution 2: w/o reversing
         carry = 1
         for i in range(len(digits)-1,-1,-1):         
             digits[i] += carry
