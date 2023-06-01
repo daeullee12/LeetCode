@@ -4,15 +4,20 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        s = str()
-        for n in digits:
-            s += str(n)
+        digits = digits[::-1]
+        carry, i = 1, 0
+        while carry:
+            if i < len(digits):
+                if digits[i] == 9:
+                    digits[i] = 0
+                else: 
+                    digits[i] += 1
+                    carry = 0
+            
+            else:
+                digits.append(1)
+                carry = 0
+
+            i += 1
         
-        output = int(s) + 1
-        l = []
-        print(output)
-        while output:
-            l.insert(0,output % 10)
-            output //= 10
-        
-        return l
+        return digits[::-1]
