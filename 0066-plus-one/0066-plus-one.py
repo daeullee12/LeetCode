@@ -33,6 +33,5 @@ class Solution(object):
 
             if i == 0 and carry:
                 digits.insert(0, carry)
-                carry = 0
             
         return digits
