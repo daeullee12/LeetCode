@@ -4,10 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        output = [1 for i in range(len(nums))]
+        output = [1] * (len(nums))
         prefix, postfix = 1, 1
 
-        # prefix [1 1*1 1*2 2*3] postfix [12*2 4*3 1*4 1]
         for i in range(1,len(nums)):
             if i > 0:
                 prefix *= nums[i-1]
