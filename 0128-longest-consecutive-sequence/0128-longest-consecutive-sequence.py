@@ -4,31 +4,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        nums = sorted(nums)
-        nset = set()
-        hmap = {}
-        count = 1
-        
-        for i in range(len(nums)):
-            if nums[i] in nset:
-                continue
+        numSet = set(nums)
+        longest = 0
 
-            if nums[i] - 1 in nset:
-                count += 1
+        for n in nums:
+            if n - 1 not in numSet:
+                length = 1
+                while n + length in numSet:
+                    length += 1
+                longest = max(longest, length)
 
-            else: count = 1
-            nset.add(nums[i])
-            hmap[count] = nums[i]
-
-        if hmap:
-            return max(hmap.keys())
-        else:
-            return 0
-
-        
-        """    
-
-        key: count
-        value: nums[i] 
-
-        """
+        return longest
