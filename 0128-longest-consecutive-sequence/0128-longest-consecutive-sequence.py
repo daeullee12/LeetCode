@@ -15,12 +15,11 @@ class Solution(object):
 
             if nums[i] - 1 in nset:
                 count += 1
-                
+
             else: count = 1
             nset.add(nums[i])
             hmap[count] = nums[i]
 
-        print(hmap)
         if hmap:
             return max(hmap.keys())
         else:
