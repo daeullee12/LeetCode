@@ -4,6 +4,8 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
+
+        # TC O(n)
         res = 0
 
         l, r = 0, len(height) - 1
