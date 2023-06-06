@@ -5,7 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-
+        # pointer, TC O(n), SC O(1)
         l, r  = 0, len(numbers)-1
 
         while l < r:
