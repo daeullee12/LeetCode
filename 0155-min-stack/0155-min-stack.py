@@ -12,11 +12,9 @@ class MinStack(object):
         """
         self.stack.append(val)
 
-        if self.minStack and val > self.minStack[-1]:
-            self.minStack.append(self.minStack[-1])
-        else:
-            self.minStack.append(val)
-        
+        val = min(val, self.minStack[-1] if self.minStack else val)
+        self.minStack.append(val)
+
 
     def pop(self):
         """
