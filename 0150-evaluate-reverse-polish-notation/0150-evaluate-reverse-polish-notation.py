@@ -8,17 +8,16 @@ class Solution(object):
         stack = []
 
         for s in tokens:
-            if s in ["+", "-", "*", "/"]:
-                a = stack.pop()
-                b = stack.pop()
-                if s == "+":
-                    stack.append(a+b)
-                elif s == "-":
-                    stack.append(b-a)
-                elif s == "*":
-                    stack.append(a*b)
-                else:
-                    stack.append(int(float(b)/a))
+            if s == "+":
+                stack.append(stack.pop() + stack.pop())
+            elif s == "-":
+                a, b = stack.pop(), stack.pop()
+                stack.append(b - a)
+            elif s == "*":
+                stack.append(stack.pop() * stack.pop())
+            elif s == "/":
+                a, b = stack.pop(), stack.pop()
+                stack.append(int(float(b) / a))
             else:
                 stack.append(int(s))
         
