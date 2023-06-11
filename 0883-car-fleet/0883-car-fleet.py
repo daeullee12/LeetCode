@@ -14,15 +14,14 @@ class Solution:
 
         # Solution 2: 
         pair = [[p, s] for p, s in zip(position, speed)]
-        pair.sort(reverse=True)
 
-        slowest = -1
+        slowest = 0
         fleet = 0
 
         if len(pair) == 1:
             return 1
         
-        for p, s in pair:
+        for p, s in sorted(pair)[::-1]:
             if (target - p) / s > slowest:
                 slowest = (target - p) / s
                 fleet += 1
