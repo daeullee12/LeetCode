@@ -12,7 +12,7 @@ class Solution:
                 
         # return len(stack)
 
-        # Solution 2: 
+        # Solution 2: w/o stack, TC O(n) SC O(1)
         pair = [[p, s] for p, s in zip(position, speed)]
 
         slowest = 0
