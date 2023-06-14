@@ -5,11 +5,8 @@ class Solution:
         res = 0
 
         for c in s:
-            print(sub)
             if c in sub:
-                while True:
-                    if sub.popleft() == c:
-                        break
+                while sub.popleft() != c:
                     continue
             sub.append(c)
             res = max(res, len(sub))
