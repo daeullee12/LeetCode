@@ -2,7 +2,7 @@ class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
         l = 0
-        char = {} # each character's count
+        char = {}
 
         for r in range(len(s)):
             if s[r] not in char:
