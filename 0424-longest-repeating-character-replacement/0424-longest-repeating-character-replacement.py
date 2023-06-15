@@ -9,7 +9,7 @@ class Solution:
                 char[s[r]] = 0
             char[s[r]] += 1
 
-            if r - l + 1 > max(char.values()) + k:
+            if r - l - max(char.values()) >= k:
                 char[s[l]] -= 1
                 l += 1
         
