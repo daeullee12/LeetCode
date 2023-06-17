@@ -7,32 +7,40 @@ class Solution:
         if len(s1) > len(s2):
             return False
 
-        hmap1 = {}
+        s1Count, s2Count = [0] * 26 , [0] * 26
 
-        for c in s1:
-            hmap1[c] = 1 + hmap1.get(c, 0)
+        for i in range(len(s1)):
+            s1Count[ord(s1[i]) - ord('a')] += 1
+            s2Count[ord(s2[i]) - ord('a')] += 1 
         
         l = 0
-        hmap2 = {}
-        match = 0
+        matches = 0
 
-        for r in range(len(s2)):
-            hmap2[s2[r]] = 1 + hmap2.get(s2[r], 0)
-            
-            if hmap1.get(s2[r], 0) == hmap2[s2[r]]:
-                match += 1
+        for i in range(26):
+            matches += (1 if s1Count[i] == s2Count[i] else 0)
 
-            if r - l + 1 > len(s1):
-                if hmap1.get(s2[l],0) == hmap2[s2[l]]:
-                    match -= 1
-                hmap2[s2[l]] -= 1
-                l += 1
-
-            if match == len(hmap1):
+        for r in range(len(s1), len(s2)):
+            if matches == 26:
                 return True
-            print(s2[r], match)
+            
+            index = ord(s2[r]) - ord('a')
+            s2Count[index] += 1
+            if s2Count[index] == s1Count[index]:
+                matches += 1 
+            elif s2Count[index] - 1 == s1Count[index]:
+                matches -= 1
 
-        return False
+            index = ord(s2[l]) - ord('a')
+            s2Count[index] -= 1
+            if s2Count[index] == s1Count[index]:
+                matches += 1 
+            elif s2Count[index] + 1 == s1Count[index]:
+                matches -= 1      
+
+            l += 1
+
+        return matches == 26
+
             
             
                 
