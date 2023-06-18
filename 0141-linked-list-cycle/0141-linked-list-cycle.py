@@ -11,10 +11,10 @@ class Solution:
 
         slow, fast = head, head
 
-        if head is None:
-            return False
+        # if head is None:
+        #     return False
 
-        while fast.next and fast.next.next:
+        while slow and fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
 
