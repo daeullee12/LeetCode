@@ -14,9 +14,7 @@ class Solution:
         if head is None:
             return False
 
-        print(head is None and head.next)
-
-        while slow is not None and fast.next is not None and fast.next.next is not None:
+        while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
 
