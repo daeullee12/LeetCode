@@ -9,15 +9,17 @@ class Solution:
         dummy = ListNode(0)
         dummy.next = head
 
-        slow, fast = dummy, dummy
+        l, r = dummy, dummy
 
         for i in range(n+1):
-            fast = fast.next
+            r = r.next
         
-        while fast is not None:
-            slow = slow.next
-            fast = fast.next
+        while r is not None:
+            l = l.next
+            r = r.next
         
-        slow.next = slow.next.next
+        l.next = l.next.next
         
         return dummy.next
+
+
