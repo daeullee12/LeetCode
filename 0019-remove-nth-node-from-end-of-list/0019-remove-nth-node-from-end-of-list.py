@@ -9,9 +9,9 @@ class Solution:
         # TC O(n)
         dummy = ListNode(0, head)
 
-        l, r = dummy, dummy
+        l, r = dummy, head
 
-        for i in range(n+1):
+        for i in range(n):
             r = r.next
         
         while r:
