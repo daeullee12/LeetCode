@@ -1,11 +1,22 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        s = set()
+        # solution 1: linked list cycle
+        # solution 2: Floyd's
+        
+        slow, fast = 0, 0
 
-        for i in nums:
-            if i in s:
-                return i
-            else:
-                s.add(i)
-        
-        
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            
+            if slow == fast:
+                break
+        slow2 = 0
+        while True:
+            slow = nums[slow]
+            slow2 = nums[slow2]
+
+            if slow == slow2:
+                break
+        return slow
+                
