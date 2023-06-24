@@ -7,6 +7,7 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         
+        # TC O(n/2) -> O(n), MC O(n)
         q = deque([root])
         res = []
 
@@ -19,7 +20,7 @@ class Solution:
                     q.append(node.left)
                     q.append(node.right)
                     level.append(node.val)
-                    
+
             if level: 
                 res.append(level)
         return res
