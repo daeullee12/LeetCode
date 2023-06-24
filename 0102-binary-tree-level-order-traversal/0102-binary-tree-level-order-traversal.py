@@ -19,6 +19,7 @@ class Solution:
                     q.append(node.left)
                     q.append(node.right)
                     level.append(node.val)
+                    
             if level: 
                 res.append(level)
         return res
