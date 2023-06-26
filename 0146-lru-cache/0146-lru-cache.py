@@ -13,12 +13,13 @@ class LRUCache:
         self.left.next, self.right.prev = self.right, self.left
     
     def remove(self, node):
-        node.prev.next, node.next.prev = node.prev.next.next, node.next.prev.prev
+        prev, nxt = node.prev, node.next
+        prev.next, nxt.prev = nxt, prev
     
     def insert(self, node):
-        node.prev, node.next = self.right.prev, self.right
-        self.right.prev.next, self.right.prev = node, node
-        
+        prev, nxt = self.right.prev, self.right
+        prev.next = nxt.prev = node
+        node.next, node.prev = nxt, prev
 
     def get(self, key: int) -> int:
         if key in self.cache:
