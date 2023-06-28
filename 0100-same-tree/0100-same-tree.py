@@ -7,10 +7,16 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
 
-        if not p and not q:
-            return True
-        if (not p or not q) or (p.val != q.val):
-            return False
+        # BFS
+        queue = deque([[p, q]])
 
-        return (self.isSameTree(p.left, q.left) and
-                self.isSameTree(p.right, q.right))
+        while queue:
+            p, q = queue.popleft()
+            if not p and not q:
+                continue
+            if (not p or not q) or (p.val != q.val):
+                return False
+            queue.append([p.left, q.left])
+            queue.append([p.right, q.right])
+        
+        return True
