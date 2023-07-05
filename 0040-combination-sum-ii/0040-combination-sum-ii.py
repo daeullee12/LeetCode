@@ -1,6 +1,6 @@
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-
+        # TC O(2^N)
         res = []
 
         candidates.sort()
