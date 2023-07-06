@@ -18,7 +18,7 @@ class Solution:
         backtrack(0)
         return res
             
-    def isPalindrome(self, s, l , r):
+    def isPalindrome(self, s, l, r):
         while l < r:
             if s[l] != s[r]:
                 return False
