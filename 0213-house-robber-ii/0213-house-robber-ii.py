@@ -5,11 +5,11 @@ class Solution(object):
         :rtype: int
         """
 
-        def helper(lists):
+        def helper(sublist):
             one, two = 0, 0
 
-            for i in range(len(lists)):
-                one, two = two, max(lists[i] + one, two)
+            for i in range(len(sublist)):
+                one, two = two, max(sublist[i] + one, two)
             return two
 
         if len(nums) == 1:
