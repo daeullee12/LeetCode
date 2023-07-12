@@ -5,15 +5,14 @@ class Solution(object):
         :rtype: int
         """
 
-        def helper(sublist):
-            one, two = 0, 0
-
-            for i in range(len(sublist)):
-                one, two = two, max(sublist[i] + one, two)
-            return two
-
         if len(nums) == 1:
             return nums[0]
-        return max(helper(nums[:-1]), helper(nums[1:]))
 
-        
+        return max(self.helper(nums[:-1]), self.helper(nums[1:]))
+
+    def helper(self, nums):
+        one, two = 0, 0
+
+        for n in nums:
+            one, two = two, max(n + one, two)
+        return two
