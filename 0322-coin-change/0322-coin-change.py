@@ -1,6 +1,7 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         
+        # TC O(amount * len(coins)), SC O(amount)
         dp = [amount + 1] * (amount + 1)
         dp[0] = 0
 
