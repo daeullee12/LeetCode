@@ -1,12 +1,9 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-
-        # Topological Sort, O(E + V), O(Prerequisites + numCourses)
         preMap = {i : [] for i in range(numCourses)}
         for crs, pre in prerequisites:
             preMap[crs].append(pre)
         
-
         output = []
         visit, cycle = set(), set()
 
@@ -18,17 +15,16 @@ class Solution:
             
             cycle.add(crs)
             for pre in preMap[crs]:
-                if not dfs(pre):
+                if not dfs(pre): 
                     return False
-            cycle.remove(crs) 
-            visit.add(crs)  
-            output.append(crs)       
+            cycle.remove(crs)
+            visit.add(crs)
+            output.append(crs)
             return True
 
-        for crs in range(numCourses):
-            if not dfs(crs):
-                return []
-    
-        return output            
 
-                
+        for crs in range(numCourses):
+            if not dfs(crs): return []
+        
+        return output
+        
