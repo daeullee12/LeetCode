@@ -3,7 +3,7 @@ class Solution:
 
         res = []
 
-        intervals.sort()
+        intervals.sort(key = lambda i : i[0]) # sorted by start value, TC O(nlogn)
         for i in range(len(intervals)):
             if not res:
                 res.append(intervals[i])
