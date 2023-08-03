@@ -3,11 +3,12 @@ class Solution:
 
         intervals.sort(key = lambda i : i[0]) # sorted by start value, TC O(nlogn)
         res = [intervals[0]]
-        for i in range(1, len(intervals)):
-            if res[-1][1] < intervals[i][0]: 
-                res.append(intervals[i])                   
+        for start, end in intervals[1:]:
+            lastEnd = res[-1][1]
+            if lastEnd < start: 
+                res.append([start, end])                   
             else:
-                res[-1] = [min(res[-1][0], intervals[i][0]), max(res[-1][1], intervals[i][1])]
+                res[-1][1] = max(lastEnd, end)
 
     
         return res
