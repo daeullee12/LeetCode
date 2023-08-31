@@ -3,21 +3,33 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
+        # MC O(1)
+        ROWS, COLS = len(matrix), len(matrix[0])
+        rowZero = False
 
-        pos = []
-        for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
+        for i in range(ROWS):
+            for j in range(COLS):
                 if matrix[i][j] == 0:
-                    pos.append((i, j))
+                    matrix[0][j] = 0
+                    if i > 0:
+                        matrix[i][0] = 0
+                    else: 
+                        rowZero = True
         
-        def changeToZero(i, j):
-            for row in range(len(matrix)):
-                matrix[row][j] = 0
-            for col in range(len(matrix[0])):
-                matrix[i][col] = 0
+        for i in range(1, ROWS):
+            for j in range(1, COLS):
+                if matrix[0][j] == 0 or matrix[i][0] == 0:
+                    matrix[i][j] = 0
 
-        for row, col in pos:
-            changeToZero(row, col)
+        if matrix[0][0] == 0:
+            for i in range(ROWS):
+                matrix[i][0] = 0
+
+        if rowZero:
+            for j in range(COLS):
+                matrix[0][j] = 0
+
+         
         
         
 
