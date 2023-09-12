@@ -5,15 +5,13 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # solution 1: brute force
-        # solution 2: hash map -> O(n), O(n)
+        hmap = {}
 
-        prevMap = {}
-                
-        for i, n in enumerate(nums):
-            diff = target - n
+        for i in range(len(nums)):
+            if nums[i] in hmap:
+                return [i, hmap[nums[i]]]
+            else:
+                complement = target - nums[i]
+                hmap[complement] = i
 
-            if diff in prevMap.keys():
-                return [prevMap[diff], i]
-            prevMap[n] = i
-        return 
+        
