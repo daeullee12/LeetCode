@@ -5,13 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        
         hmap = {}
-
         for i in range(len(nums)):
             if nums[i] in hmap:
-                return [i, hmap[nums[i]]]
-            else:
-                complement = target - nums[i]
-                hmap[complement] = i
-
+                return [hmap[nums[i]], i]
+            hmap[target - nums[i]] = i 
         
+    
+            
