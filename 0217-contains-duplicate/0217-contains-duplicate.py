@@ -1,14 +1,15 @@
-class Solution(object):
-    def containsDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        hset = set()
-        for idx in nums:
-            if idx in hset:
-                return True
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+
+        hmap = set()
+
+        for n in nums:
+            if n not in hmap:
+                hmap.add(n)
             else:
-                hset.add(idx)
+                return True
+        
         return False
-                 
+        
+
+        
