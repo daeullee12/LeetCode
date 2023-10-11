@@ -1,14 +1,18 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
         
-        l, r = 0, 0
-        rain = 0
+        l, r = 0, len(height) - 1
+        leftMax, rightMax = height[l], height[r]
 
-        for i in range(1, len(height) - 1):
-
-            l = max(height[:i])
-            r = max(height[i + 1:])
-            rain += max(0, min(l, r) - height[i])
-
-        return rain
-            
+        res = 0
+        while l < r:
+            if leftMax < rightMax:
+                l += 1
+                leftMax = max(leftMax, height[l])
+                res += leftMax - height[l]
+            else:
+                r -= 1
+                rightMax = max(rightMax, height[r])
+                res += rightMax - height[r]
+        
+        return res
