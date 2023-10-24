@@ -3,6 +3,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        # bubble sort -> O(n^2)
         
         for i in range(len(nums) - 1, 0, -1):
             for j in range(i):
