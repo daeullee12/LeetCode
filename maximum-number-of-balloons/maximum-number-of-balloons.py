@@ -1,19 +1,12 @@
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
-        count = {}
-        answer = 0
+        b  = text.count('b')
+        a  = text.count('a')
+        l  = text.count('l')//2
+        o  = text.count('o')//2
+        n  = text.count('n')
         
-        for c in text:
-            if c in set(list("balloon")):
-                count[c] = 1 + count.get(c, 0)
-            else:
-                continue
-        
-        for k, v in count.items():
-            if k == "l" or k == "o":
-                count[k] //= 2
-        
-        return min(count.values()) if len(count) == 5 else 0
+        return min(b,a,l,o,n)
             
                 
                 
