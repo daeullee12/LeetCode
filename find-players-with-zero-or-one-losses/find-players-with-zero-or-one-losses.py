@@ -1,30 +1,22 @@
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        # losing count
-        zeros = set()
-        ones = set()
-        more = set()
-        
-        
+        zero_loss = set()
+        one_loss = set()
+        more_loss = set()
         
         for w, l in matches:
-            if w not in zeros and w not in ones and w not in more:
-                zeros.add(w)
-            if l not in zeros and l not in ones and l not in more:
-                ones.add(l)           
-            elif l in zeros:
-                zeros.remove(l)
-                ones.add(l)
-            elif l in ones:
-                ones.remove(l)
-                more.add(l)
+            if w not in one_loss and w not in more_loss:
+                zero_loss.add(w)
             
-        
-        return [sorted(list(zeros)), sorted(list(ones))]
-                
+            if l in zero_loss:
+                zero_loss.remove(l)
+                one_loss.add(l)
+            elif l in one_loss:
+                one_loss.remove(l)
+                more_loss.add(l)
+            elif l in more_loss:
+                continue
+            else:
+                one_loss.add(l)
             
-            
-                    
-                    
-                
-            
+        return [sorted(list(zero_loss)), sorted(list(one_loss))]
