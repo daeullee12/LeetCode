@@ -2,25 +2,27 @@ class Codec:
     
     def encode(self, strs: List[str]) -> str:
 
-        self.d = {}
-        result = ""
-        i = 0
-
-        for s in strs:
-            self.d[i] = s
-            result += s
-            i += 1
+        res = ""
+        for i in range(len(strs)):
+            res += str(len(strs[i])) + "#" + strs[i]
         
-        return result
+        print(res)
+        return res
 
     def decode(self, s: str) -> List[str]:
         
-        i = 0
-        self.strs = []
-        for i in range(len(self.d)):
-            self.strs.append(self.d[i])
-        
-        return self.strs
+        res, i = [], 0
+
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            length = int(s[i])
+            res.append(s[j + 1:j + 1 + length])
+            i = j + 1 + length
+
+
+        return res
 
 
 # Your Codec object will be instantiated and called as such:
